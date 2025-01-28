@@ -3,21 +3,13 @@ class User:
         self.email = email
         self.name = name
         self.password = password
-        self.devices = []
-
-    def add_devices(self, device):
-        self.devices.append(device)
-
+        
 class Device:
     def __init__(self, mac, user, name):
         self.mac = mac
         self.user = user
         self.name = name
         self.list_port = []
-    
-    def add_port(self, port_number, port_type):
-        port = Port(port_number, port_type, self):
-        self.list_port.append(port)
 
 class Port:
     def __init__(self, port_number, port_type, device):
@@ -25,7 +17,7 @@ class Port:
         self.port_type = type
         self.device = device
 
-class Data:
+class DataPort:
     def __init__(self, time_stamp, value, std, port):
         self.time_stamp = time_stamp
         self.value = value
@@ -37,7 +29,12 @@ class UserPortView:
         self.user = user
         self.port = port
         self.custom_name = custom_name
-
+        
+class UserPortGroup:
+    def __init__(self, port_group, user):
+        self.port_group = port_group
+        self.user = user
+        
 
 
 
