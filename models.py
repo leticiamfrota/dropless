@@ -1,11 +1,5 @@
 from django.db import models
-'''from django.contrib.auth.models import User'''
-
-
-class User(models.Model):
-    email = models.EmailField(unique=True)
-    name = models.CharField(max_length=100)
-    password = models.CharField(max_length=128)
+from django.contrib.auth.models import User
 
 class UserPortView(models.Model):
     user = models.ForeignKey('User', on_delete=models.CASCADE)
@@ -19,6 +13,7 @@ class UserPortGroup(models.Model):
 class Device(models.Model):
     mac = models.CharField(max_length=17)
     name = models.CharField(max_length=100)
+    user = models.ForeignKey('User', on_delete=models.CASCADE)
 
 class Port(models.Model):
     PORT_CHOICES = [
